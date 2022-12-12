@@ -34,7 +34,7 @@ header {
 }
 
 section {
-    margin-bottom: 100px;
+    margin: 100px 0;
     padding: 1rem;
 }
 
@@ -49,7 +49,7 @@ section {
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     font-size: 32px;
     font-weight: 800;
     line-height: 150%;
@@ -177,6 +177,10 @@ nav ul li {
     border-left: .3rem solid var(--main-color);
 }
 
+nav ul li.active a {
+    color: var(--main-color);
+}
+
 nav ul li a {
     margin-left: 10px;
     color: var(--white);
@@ -197,7 +201,7 @@ nav ul li a:hover {
 .home,
 .home .wrapper {
     padding: 0;
-    margin-bottom: 0;
+    margin: 0;
     min-width: 100vw;
 }
 
@@ -248,13 +252,14 @@ nav ul li a:hover {
 /* why choose us */
 
 .why-choose-us {
+    margin-top: 0;
     margin-bottom: 50px;
 }
 
 .why-choose-us .title {
     font-family: 'Raleway', sans-serif;
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     font-size: 32px;
     font-weight: 800;
     color: var(--white);
@@ -313,10 +318,6 @@ nav ul li a:hover {
 
 /* about */
 
-.about-page {
-    margin-top: 100px;
-}
-
 .about .box-container {
     display: flex; 
     flex-direction: column;
@@ -326,7 +327,7 @@ nav ul li a:hover {
 .about .box-container .content {
     text-align: center;
     margin-bottom: 100px;
-    width: 230px;
+    min-width: 230px;
     color: var(--white);
     line-height: 200%;
 }
@@ -377,10 +378,6 @@ nav ul li a:hover {
 }
 
 /* Contact */
-
-.contact-page {
-    margin-top: 100px;
-}
 
 .contact .container {
     display: flex;
@@ -547,10 +544,6 @@ input::-webkit-inner-spin-button {
 
 /* Regulations */
 
-.regulations {
-    margin-top: 100px;
-}
-
 .regulations h3 {
     text-align: center;
     margin: 0 auto;
@@ -605,10 +598,6 @@ li::marker {
 
 /* Reviews */
 
-.reviews {
-    margin-top: 100px;
-}
-
 .reviews .slide {
     position: relative;
     margin-bottom: 50px;
@@ -649,10 +638,6 @@ li::marker {
 }
 
 /* FAQ */
-
-.faq {
-    margin-top: 100px;
-}
 
 .faq .box-container {
     flex-direction: column;
@@ -704,10 +689,6 @@ li::marker {
 
 /* Cars */
 
-.cars {
-    margin-top: 100px;
-}
-
 .cars .box-container {
     flex-direction: column;
 }
@@ -747,10 +728,6 @@ li::marker {
 
 /* Pricing */
 
-.pricing {
-    margin-top: 100px;
-}
-
 .pricing .box-container {
     flex-direction: column;
 }
@@ -764,6 +741,14 @@ li::marker {
 .pricing .box-container .box .image img {
     width: 100%;
     border-radius: 12px;
+}
+
+.pricing .box-container .box .image h4 {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .pricing .box-container .box .content {
@@ -786,6 +771,7 @@ li::marker {
 
 .pricing .box-container .box .content .pricing ul li.brand {
     font-weight: 700;
+    display: none;
 }
 
 .pricing .box-container .box .content .pricing .cont.red {
@@ -823,7 +809,14 @@ li::marker {
 
 
 
+@media(min-width: 350px){
 
+    .contact form .box,
+    .faq .box-container .box {
+        width: 300px;
+    }
+
+}
 
 @media(min-width: 450px) {
 
@@ -979,6 +972,14 @@ nav ul li {
         order: -2;
     }
 
+    .pricing .box-container .box .image h4 {
+        display: none;
+    }
+
+    .pricing .box-container .box .content .pricing ul li.brand {
+        display: block;
+    }
+    
     .pricing .box-container .content {
         width: 450px;
     }
