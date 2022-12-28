@@ -20,26 +20,51 @@ window.addEventListener('scroll', () => {
 
 // FAQ
 
-const faqContainer = document.querySelectorAll(".box-container .header");
-const faqAngle = document.querySelector(".box-container .header i");
-const faqContent = document.querySelector(".box-container .content");
+function toggleAccordion() {
+  // Get the header element
+  const header = this;
 
-// faqContainer.forEach((question) => {
-//   question.addEventListener('click', () => {
-//     if(faqContent.classList.contains('active')){
-//       faqContent.classList.remove('active');
-//       faqAngle.classList.toggle('active');
-//     } else {
-//       faqContent.classList.toggle('active');
-//       faqAngle.classList.toggle('active');
-//     }
-//   });
-// });
+  // Get all the header elements
+  const headers = document.querySelectorAll('.box .header');
 
-faqContainer.forEach((header) => {
-  header.addEventListener("click", () => {
-    header.nextElementSibling.classList.toggle("active");
+  // Close all the headers
+  headers.forEach(function (otherHeader) {
+    if (otherHeader !== header) {
+      // Remove the "active" class from the header
+      otherHeader.classList.remove('active');
+
+      // Get the content element
+      const content = otherHeader.nextElementSibling;
+
+      // Remove the "show" class from the content
+      content.classList.remove('active');
+
+      // Toggle the angle icon
+      const icon = otherHeader.querySelector('i');
+      icon.classList.remove('active');
+    }
   });
+
+  // Toggle the "active" class on the header
+  header.classList.toggle('active');
+
+  // Get the content element
+  const content = header.nextElementSibling;
+
+  // Toggle the "show" class on the content
+  content.classList.toggle('active');
+
+  // Toggle the angle icon
+  const icon = header.querySelector('i');
+  icon.classList.toggle('active');
+}
+
+// Get all the header elements
+const headers = document.querySelectorAll('.box .header');
+
+// Attach the toggleAccordion function to each header
+headers.forEach(function (header) {
+  header.addEventListener('click', toggleAccordion);
 });
 
 // Swipers
